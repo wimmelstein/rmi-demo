@@ -19,29 +19,30 @@ public class IsEvenController {
 
   private  final Logger logger = Logger.getLogger(this.getClass().getName());
   private String remoteHost = System.getProperty("RMI_HOST");
+  private RmiProxyFactoryBean proxyFactoryBean;
+
+  public IsEvenController(RmiProxyFactoryBean proxyFactoryBean) {
+    this.proxyFactoryBean = proxyFactoryBean;
+  }
 
   @RequestMapping(value = "{number}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<ResponseDTO> isEven(@PathVariable int number) {
+    int status = 200;
     ResponseDTO response;
     try {
      response = new ResponseDTO(String.format("Is %d even", number), getEven(number));
     } catch (IllegalArgumentException iae) {
       response = new ResponseDTO("error", iae.getMessage());
+      status = 400;
     }
-    return ResponseEntity.ok(response);
+    return ResponseEntity.status(status).body(response);
   }
 
   private boolean getEven(int number) {
-    if (Objects.isNull(remoteHost)) {
+    if ("localhost".equals(System.getProperty("RMI_HOST"))) {
       throw new IllegalArgumentException("You're not supposed to call yourself");
     }
-    String rmiHost = String.format("rmi://%s:1199/IsEvenService", remoteHost);
-    logger.fine("RMI Host name is " + rmiHost);
-    RmiProxyFactoryBean proxy = new RmiProxyFactoryBean();
-    proxy.setServiceInterface(IsEvenService.class);
-    proxy.setServiceUrl(rmiHost);
-    proxy.afterPropertiesSet();
-    IsEvenService service = (IsEvenService) proxy.getObject();
+    IsEvenService service = (IsEvenService) proxyFactoryBean.getObject();
     return Objects.requireNonNull(service).isEven(number);
   }
 }
