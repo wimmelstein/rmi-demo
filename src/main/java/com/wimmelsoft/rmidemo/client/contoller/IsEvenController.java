@@ -33,7 +33,7 @@ public class IsEvenController {
 
   private boolean getEven(int number) {
     if (Objects.isNull(remoteHost)) {
-      throw new IllegalArgumentException("You're not supposed to call yourselfr");
+      throw new IllegalArgumentException("You're not supposed to call yourself");
     }
     String rmiHost = String.format("rmi://%s:1199/IsEvenService", remoteHost);
     logger.fine("RMI Host name is " + rmiHost);
