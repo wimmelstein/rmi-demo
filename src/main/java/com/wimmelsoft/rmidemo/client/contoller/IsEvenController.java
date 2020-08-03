@@ -6,9 +6,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.remoting.rmi.RmiProxyFactoryBean;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Objects;
 import java.util.logging.Logger;
@@ -25,8 +25,8 @@ public class IsEvenController {
     this.proxyFactoryBean = proxyFactoryBean;
   }
 
-  @RequestMapping(value = "{number}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<ResponseDTO> isEven(@PathVariable int number) {
+  @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, params = {"number"})
+  public ResponseEntity<ResponseDTO> isEven(@RequestParam int number) {
     int status = 200;
     ResponseDTO response;
     try {

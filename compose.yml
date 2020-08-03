@@ -1,7 +1,7 @@
 version: "3"
 services:
   rmi-server:
-    image: wimmelsoft/rmi-demo:1.0.2
+    image: wimmelsoft/rmi-demo:1.0.4
     hostname: rmi-server
     ports:
       - "80:8089"
@@ -11,7 +11,7 @@ services:
       - demo
 
   rmi-client:
-    image: wimmelsoft/rmi-demo:1.0.2
+    image: wimmelsoft/rmi-demo:1.0.4
     hostname: rmi-client
     ports:
       - "81:8089"
