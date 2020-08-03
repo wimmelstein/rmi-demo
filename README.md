@@ -22,5 +22,14 @@ Call the RMI client with:
 
 ```http://localhost/iseven/10```
 
+> TODO:
+> * Restrict networking between containers
+> * Allow only two ports from client to server: 
+>
+>   1199: Registry, 
+>   7001: Fixed port for service
+> 
+> * Implement fixed service port on server
+
 If you have questions, or suggestions, please create an issue with this repository, and I will see if I can address them.
 
