@@ -5,16 +5,16 @@
 
     <groupId>com.wimmelsoft</groupId>
     <artifactId>rmi-demo</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>rmi-server</module>
+        <module>rmi-client</module>
+        <module>rmi-common</module>
+    </modules>
     <name>rmi-demo</name>
     <description>Demo project for RMI technical blog</description>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.2.RELEASE</version>
-    </parent>
     <developers>
         <developer>
             <organization>Wiltenburg IT</organization>
@@ -26,17 +26,6 @@
             </roles>
         </developer>
     </developers>
-
-    <properties>
-        <java.version>11</java.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
 
 
     <build>
