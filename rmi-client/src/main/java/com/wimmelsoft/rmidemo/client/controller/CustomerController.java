@@ -22,11 +22,9 @@ public class CustomerController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CustomerDTO> getCustomer(@PathVariable long id) {
-
         CustomerService service = (CustomerService) proxyFactoryBean.getObject();
         CustomerDTO dto = service.getCustomer(id);
         return ResponseEntity.ok(dto);
-
     }
 }
 

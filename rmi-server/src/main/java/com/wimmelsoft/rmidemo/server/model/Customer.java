@@ -22,7 +22,6 @@ public class Customer {
         this.socialSecurityCode = socialSecurityCode;
     }
 
-
     public long getId() {
         return id;
     }
@@ -53,12 +52,11 @@ public class Customer {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Customer{");
-        sb.append("id=").append(id);
-        sb.append(", firstName='").append(firstName).append('\'');
-        sb.append(", lastName='").append(lastName).append('\'');
-        sb.append(", socialSecurityCode='").append(socialSecurityCode).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", socialSecurityCode='" + socialSecurityCode + '\'' +
+                '}';
     }
 }

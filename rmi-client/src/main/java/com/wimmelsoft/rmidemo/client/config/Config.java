@@ -11,10 +11,11 @@ import java.util.logging.Logger;
 public class Config {
 
     public final Logger log = Logger.getLogger(this.getClass().getName());
+
     @Bean
     public RmiProxyFactoryBean proxyFactoryBean() {
         /*
-        WorkaroundL setting system property RMI_HOST to localhost. This is going to
+        Workaround: setting system property RMI_HOST to localhost. This is going to
         be a VM argument in th finished product
          */
         System.setProperty("RMI_HOST", "localhost");

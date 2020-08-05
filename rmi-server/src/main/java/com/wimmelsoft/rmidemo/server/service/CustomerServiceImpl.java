@@ -19,16 +19,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void getNumberOfCustomers() {
-
-    }
-
-    @Override
-    public String getApplicationName() {
-        return "Rmi Demo Application";
-    }
-
-    @Override
     public CustomerDTO getCustomer(long id) {
         Customer customer = repository.findById(id).orElseThrow(IllegalArgumentException::new);
         CustomerMapper mapper = new CustomerMapper();

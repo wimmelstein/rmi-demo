@@ -5,7 +5,6 @@ import com.wimmelsoft.rmidemo.server.model.Customer;
 
 public class CustomerMapper {
 
-
     public CustomerMapper() {
     }
 

@@ -17,21 +17,17 @@ public class RmiServerApplicationRunner implements ApplicationRunner {
 
     private CustomerRepository repository;
     private CustomerServiceImpl customerService;
+    private final Logger log = Logger.getLogger(this.getClass().getName());
 
     public RmiServerApplicationRunner(CustomerServiceImpl customerService) {
         this.customerService = customerService;
     }
-
-    private final Logger log = Logger.getLogger(this.getClass().getName());
-
-
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Customer customer1 = new Customer("John", "Smith", "123-456-7890");
         customerService.saveCustomer(customer1);
         customerService.getCustomers().forEach(System.out::println);
-
     }
 
     @Bean
