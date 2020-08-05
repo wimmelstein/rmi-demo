@@ -1,4 +1,4 @@
-package com.wimmelsoft.rmidemo.mapper;
+package com.wimmelsoft.rmidemo.server.mapper;
 
 import com.wimmelsoft.rmidemo.common.CustomerDTO;
 import com.wimmelsoft.rmidemo.server.model.Customer;

@@ -2,8 +2,8 @@ package com.wimmelsoft.rmidemo.server.service;
 
 import com.wimmelsoft.rmidemo.common.CustomerDTO;
 import com.wimmelsoft.rmidemo.common.CustomerService;
-import com.wimmelsoft.rmidemo.mapper.CustomerMapper;
 import com.wimmelsoft.rmidemo.server.dao.CustomerRepository;
+import com.wimmelsoft.rmidemo.server.mapper.CustomerMapper;
 import com.wimmelsoft.rmidemo.server.model.Customer;
 import org.springframework.stereotype.Service;
 
