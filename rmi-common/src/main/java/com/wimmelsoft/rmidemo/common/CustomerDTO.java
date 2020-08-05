@@ -1,6 +1,8 @@
 package com.wimmelsoft.rmidemo.common;
 
-public class CustomerDTO {
+import java.io.Serializable;
+
+public class CustomerDTO implements Serializable {
 
     private String firstName;
     private String lastName;
