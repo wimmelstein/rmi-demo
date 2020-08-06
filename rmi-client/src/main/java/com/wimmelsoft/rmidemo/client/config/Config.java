@@ -14,12 +14,7 @@ public class Config {
 
     @Bean
     public RmiProxyFactoryBean proxyFactoryBean() {
-        /*
-        Workaround: setting system property RMI_HOST to localhost. This is going to
-        be a VM argument in th finished product
-         */
-        System.setProperty("RMI_HOST", "localhost");
-        String remoteHost = System.getProperty("RMI_HOST");
+        String remoteHost = System.getProperty("RMI_SERVER_HOST");
         String rmiHost = String.format("rmi://%s:1199/customerService", remoteHost);
         log.info("RMI Host name is " + rmiHost);
         RmiProxyFactoryBean proxy = new RmiProxyFactoryBean();

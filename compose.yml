@@ -1,22 +1,18 @@
 version: "3"
 services:
   rmi-server:
-    image: wimmelsoft/rmi-demo:1.0.4
+    image: wimmelsoft/rmi-server:1.0.0
     hostname: rmi-server
-    ports:
-      - "80:8089"
-    environment:
-      RMI_OPTS: "-DRMI_HOST=localhost"
     networks:
       - demo
 
   rmi-client:
-    image: wimmelsoft/rmi-demo:1.0.4
+    image: wimmelsoft/rmi-client:1.0.0
     hostname: rmi-client
     ports:
-      - "81:8089"
+      - "80:8081"
     environment:
-      RMI_OPTS: "-DRMI_HOST=rmi-server"
+      RMI_OPTS: "-DRMI_SERVER_HOST=rmi-server"
     networks:
       - demo
 
